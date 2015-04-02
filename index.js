@@ -239,6 +239,8 @@ module.exports = function GridFSStore (globalOpts) {
                         root: options.bucket,
                         metadata: {
                             fd: fd,
+							filename : __newFile.filename,
+							contentType : __newFile.headers && __newFile.headers["content-type"],
                             dirname: __newFile.dirname || path.dirname(fd)
                         }
                     });
