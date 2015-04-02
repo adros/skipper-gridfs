@@ -235,12 +235,11 @@ module.exports = function GridFSStore (globalOpts) {
                     // console.log('Opened connection for (%s)',fd);
 
                     var outs = gfs.createWriteStream({
-                        filename: fd,
+                        filename: options.filename || fd,
                         root: options.bucket,
                         metadata: {
                             fd: fd,
-							filename : __newFile.filename,
-							contentType : __newFile.headers && __newFile.headers["content-type"],
+                            contentType : __newFile.headers && __newFile.headers["content-type"],
                             dirname: __newFile.dirname || path.dirname(fd)
                         }
                     });
